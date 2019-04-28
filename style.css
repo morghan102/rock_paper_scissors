@@ -1,18 +1,40 @@
+#instructions {
+    position: relative;
+    margin-top: 80px;
+    /* text-align: center; */
+    margin-left: 180px;
+    font-size: 25pt;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-fill-color: black;
+    /* -webkit-text-stroke-color: black; */
+} 
+
 #userInput {
     position: relative;
-    margin-top: 100px;
-    margin-left: 280px;
+    display: block;
+    margin: 0 auto;
 }
 
-#rock {
-    width: 100px;
-    height: 30px;
+button {
+    position: relative;
+    display: block;
+    margin-left: 450px;
+    margin-top: -21px; 
 }
-#paper {
-    width: 100px;
-    height: 30px;
+
+#p1 {
+    position: relative;
+    color: rgb(68, 66, 66);
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 267px;
 }
-#scissors {
-    width: 100px;
-    height: 30px;
+#p2 {
+    position: relative;
+    color: rgb(71, 34, 139);
+    font-weight: bolder;
+    margin-left: 267px;
+}
+
+body {
+    background-color: #DCDBE2;
 }

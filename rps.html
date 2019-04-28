@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
     <meta charset="utf-8">
@@ -6,42 +6,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>    
-    <!-- <div class="userInput">
-       <button id="rock">Rock</button>
-       <button id="paper">Paper</button>
-       <button id="scissors">Scissors</button>
-    </div> -->
+    
+    <p id="instructions">Type rock, paper, or scissors</p>
     <input type="text" id="userInput">
-    <button>shoot</button>
-    <p></p>
-    <p id="p2"></p>
+    <button type="submit">shoot</button>
+    <p id="p1"></p>
+    <p id="p2"></p> <!--Needed to make 2nd para2 for 2nd para2 pf text, otherwise wouldve replaced 1st paragraph -->
 
-<script>
-//boolean functions istie, compwin, pplwin. each has a list of t/f for that
+<script> // MAKE: enter button mess w/, & case sensitive strings
         var input = document.querySelector("#userInput");
-        var para = document.querySelector("p");
+        var para1 = document.querySelector("#p1");
         var para2 = document.querySelector("#p2")
-        var button = document.querySelector("button") //enter=button??? 
+        var button = document.querySelector("button")
 
-        //var compSelection = compSelection();
-        // var userInput = input.value; //is maybe the same thing as the var input... //userInput(userInput, rock, paper, scissors);
-
-
-
-// function userInput(userInput, rock, paper, scissors) {
-//     if (userInput === "rock"){ //in "" needs to be what user types
-//         alert("You chose rock");
-//         return rock;
-//     } else if (userInput === "paper") {
-//         alert("You chose paper");
-//         return paper;
-//     } else if (userInput === "scissors") { //DEAD CODE
-//         alert("You chose scissors");
-//         return scissors;
-//     } else if (userInput === "") {
-//         alert("Choose rock, paper, or scissors.");
-//     }
-// }
+    //WESLEY: console says Uncaught TypeError: Cannot read property 'addEventListener' of null. I just want to be able to submit #userInput on enter!
+    // document.getElementById("#userInput")
+    // .addEventListener("keyup", function(event) {
+    //     event.preventDefault();
+    //     if(event.keyCode == 13) {
+    //         document.getElementById("#userInput").click();
+    //     }
+    // });
 
 function compSelect() {
     var computerChoice = ["rock", "paper", "scissors"];
@@ -65,20 +50,17 @@ function compWins(player, comp) {
 button.onclick = function () {
     var userInput = input.value;
     var compSelection = compSelect();
-    // para.textContent = userInput;
-   // para.textContent = compSelection;
-   para2.textContent = "Computer chose " + compSelection + ".";
-    if (compSelection === userInput) {//boolean function eould negate the need for these. can copy paste into the booleans
-        para.textContent = "It's a draw!"; //compSelecion needs to be something i can recognize as t/f for r, p, or s.
+   para1.textContent = "Computer chose " + compSelection + ".";
+    if (compSelection === userInput) {
+        para2.textContent = "It's a draw!";
     } else if (playerWins(userInput, compSelection)) {
-        para.textContent = "You win!"
+        para2.textContent = "You win!"
     } else if (compWins(userInput, compSelection)) {
-        para.textContent = "Computer wins!"
+        para2.textContent = "Computer wins!"
     } else {
-        para.textContent = "Fail"
+        para2.textContent = "Fail"
     }
 }
-//make "strings" not case sensitive!
 </script>
 </body>
 </html>
