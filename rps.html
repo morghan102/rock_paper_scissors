@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rock paper scissors!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>    
+    <!-- <div class="userInput">
+       <button id="rock">Rock</button>
+       <button id="paper">Paper</button>
+       <button id="scissors">Scissors</button>
+    </div> -->
+    <input type="text" id="userInput">
+    <button>shoot</button>
+    <p></p>
+    <p id="p2"></p>
+
+<script>
+//boolean functions istie, compwin, pplwin. each has a list of t/f for that
+        var input = document.querySelector("#userInput");
+        var para = document.querySelector("p");
+        var para2 = document.querySelector("#p2")
+        var button = document.querySelector("button") //enter=button??? 
+
+        //var compSelection = compSelection();
+        // var userInput = input.value; //is maybe the same thing as the var input... //userInput(userInput, rock, paper, scissors);
+
+
+
+// function userInput(userInput, rock, paper, scissors) {
+//     if (userInput === "rock"){ //in "" needs to be what user types
+//         alert("You chose rock");
+//         return rock;
+//     } else if (userInput === "paper") {
+//         alert("You chose paper");
+//         return paper;
+//     } else if (userInput === "scissors") { //DEAD CODE
+//         alert("You chose scissors");
+//         return scissors;
+//     } else if (userInput === "") {
+//         alert("Choose rock, paper, or scissors.");
+//     }
+// }
+
+function compSelect() {
+    var computerChoice = ["rock", "paper", "scissors"];
+    var computerPlay = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    return computerPlay;
+}//computer randomly selects rock,paper,scissors
+
+function playerWins(player, comp) {
+    return (comp === "rock" && player === "paper") 
+        || (comp === "paper" && player === "scissors") 
+        || (comp === "scissors" && player === "rock")
+}
+
+function compWins(player, comp) {
+    return (comp ==="rock" && player === "scissors") 
+        || (comp === "scissors" && player === "rock") 
+        || (comp === "paper" && player === "rock")
+}
+
+//tells us who wins
+button.onclick = function () {
+    var userInput = input.value;
+    var compSelection = compSelect();
+    // para.textContent = userInput;
+   // para.textContent = compSelection;
+   para2.textContent = "Computer chose " + compSelection + ".";
+    if (compSelection === userInput) {//boolean function eould negate the need for these. can copy paste into the booleans
+        para.textContent = "It's a draw!"; //compSelecion needs to be something i can recognize as t/f for r, p, or s.
+    } else if (playerWins(userInput, compSelection)) {
+        para.textContent = "You win!"
+    } else if (compWins(userInput, compSelection)) {
+        para.textContent = "Computer wins!"
+    } else {
+        para.textContent = "Fail"
+    }
+}
+//make "strings" not case sensitive!
+</script>
+</body>
+</html>
